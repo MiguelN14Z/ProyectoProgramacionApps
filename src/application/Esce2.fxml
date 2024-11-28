@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Esce2Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="210.0" layoutY="59.0" text="Informacion del Nuevo Empleado" AnchorPane.topAnchor="59.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="192.0" text="DNI Empleado" />
+      <Label layoutX="51.0" layoutY="224.0" text="Nombre" />
+      <Label layoutX="51.0" layoutY="258.0" text="Sexo" />
+      <Label layoutX="51.0" layoutY="294.0" text="Fecha de Nacimiento" />
+      <Label layoutX="-194.0" layoutY="14.0" text="Fecha de Incorporación" />
+      <Label layoutX="341.0" layoutY="192.0" text="Salario" />
+      <Label layoutX="343.0" layoutY="224.0" text="Comisón" />
+      <Label layoutX="343.0" layoutY="259.0" prefHeight="18.0" prefWidth="32.0" text="Cargo" />
+      <Label layoutX="342.0" layoutY="294.0" text="ID de Jefe Inmediato" />
+      <Label layoutX="344.0" layoutY="329.0" text="Código Departamento" />
+      <TextField fx:id="dni" layoutX="193.0" layoutY="188.0" prefHeight="26.0" prefWidth="124.0" />
+      <TextField fx:id="nombre" layoutX="193.0" layoutY="220.0" prefHeight="26.0" prefWidth="124.0" />
+      <TextField fx:id="cargp" layoutX="478.0" layoutY="253.0" prefHeight="26.0" prefWidth="124.0" />
+      <TextField fx:id="salario" layoutX="478.0" layoutY="188.0" prefHeight="26.0" prefWidth="124.0" />
+      <ChoiceBox fx:id="jefe" layoutX="478.0" layoutY="290.0" prefHeight="26.0" prefWidth="124.0" />
+      <ChoiceBox fx:id="depa" layoutX="478.0" layoutY="324.0" prefHeight="26.0" prefWidth="124.0" />
+      <DatePicker fx:id="nacimiento" layoutX="194.0" layoutY="290.0" prefHeight="26.0" prefWidth="124.0" />
+      <DatePicker fx:id="incorporacion" layoutX="193.0" layoutY="325.0" prefHeight="26.0" prefWidth="124.0" />
+      <ChoiceBox fx:id="sexo" layoutX="193.0" layoutY="255.0" prefHeight="26.0" prefWidth="124.0" />
+      <TextField fx:id="comision" layoutX="478.0" layoutY="220.0" prefHeight="26.0" prefWidth="124.0" />
+      <ImageView fitHeight="413.0" fitWidth="674.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="413.0" fitWidth="674.0" layoutX="17.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
