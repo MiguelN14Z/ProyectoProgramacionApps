@@ -18,6 +18,6 @@
       </Label>
       <TextField fx:id="usuario" layoutX="103.0" layoutY="88.0" prefHeight="26.0" prefWidth="139.0" />
       <Label layoutX="32.0" layoutY="150.0" text="Escoja el servicio que desa usar: " />
-      <ComboBox layoutX="214.0" layoutY="146.0" onAction="#select" prefHeight="26.0" prefWidth="139.0" />
+      <ComboBox fx:id="comboBox" layoutX="214.0" layoutY="146.0" onAction="#select" prefHeight="26.0" prefWidth="139.0" />
    </children>
 </AnchorPane>
