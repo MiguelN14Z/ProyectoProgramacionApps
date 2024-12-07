@@ -22,13 +22,10 @@ public class LoginController {
 
     @FXML
     public void login(ActionEvent event) {
-        // Obtener los valores de los campos de texto
         String username = usuario.getText();
         String password = contrasena.getText();
 
-        // Validar que los campos no estén vacíos
         if (username.isEmpty() || password.isEmpty()) {
-            // Mostrar un mensaje de advertencia
             Alert alert = new Alert(AlertType.WARNING);
             alert.setTitle("Advertencia");
             alert.setHeaderText("Campos vacíos");
@@ -36,18 +33,20 @@ public class LoginController {
             alert.showAndWait();
         } else {
             try {
-                // Cargar la nueva escena desde Esce1.fxml
+                // Cargar Esce1.fxml
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Esce1.fxml"));
                 Pane root = loader.load();
 
-                // Obtener el Stage actual desde el botón
-                Stage stage = (Stage) boton1.getScene().getWindow();
+                // Obtener el controlador de Esce1 y pasar el nombre del usuario
+                Esce1Controller controller = loader.getController();
+                controller.setUsuario(username);  // Pasa el nombre del usuario al TextField de Esce1.fxml
 
-                // Configurar la nueva escena y mostrarla
+                // Cambiar la escena
+                Stage stage = (Stage) boton1.getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();
             } catch (IOException e) {
-                e.printStackTrace(); // Manejar errores de carga del FXML
+                e.printStackTrace();
             }
         }
     }

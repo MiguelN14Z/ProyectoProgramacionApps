@@ -1,5 +1,7 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,13 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 public class Esce1Controller {
     @FXML
     private Button button1;
     @FXML
-    private TextField usuario;
+    private TextField usuario;  // El TextField donde se mostrará el nombre
     @FXML
     private ComboBox<String> comboBox;
 
@@ -24,6 +25,14 @@ public class Esce1Controller {
         // Configura las opciones del ComboBox
         comboBox.setItems(FXCollections.observableArrayList("Ingresar Empleado", "Consultar Empleados"));
     }
+
+    // Método para establecer el nombre del usuario en el TextField
+    @FXML
+    public void setUsuario(String nombreUsuario) {
+        usuario.setText(nombreUsuario);  // Muestra el nombre del usuario en el TextField
+    }
+
+
 
     @FXML
     public void ingresar(ActionEvent event) {
