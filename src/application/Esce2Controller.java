@@ -24,9 +24,9 @@ public class Esce2Controller {
     @FXML
     private TextField cargo;
     @FXML
-    private ComboBox<Empleado> jefe; // Cambiado a Empleado para mostrar objetos reales
+    private ComboBox<Empleado> jefe; 
     @FXML
-    private ComboBox<Departamento> departamento; // Cambiado a Departamento para mostrar objetos reales
+    private ComboBox<Departamento> departamento; 
     @FXML
     private DatePicker nacimiento;
     @FXML
@@ -39,9 +39,7 @@ public class Esce2Controller {
     @FXML
     private Button botonRegresar;
 
-    // Método para inicializar los valores
     public void initialize() {
-        // Inicializa el ComboBox de género
         genero.getItems().addAll("Masculino", "Femenino", "Otro");
 
         // Cargar los valores de jefe desde la base de datos
@@ -108,7 +106,7 @@ public class Esce2Controller {
     @FXML
     public void jefe(ActionEvent event) {
         Empleado jefeSeleccionado = jefe.getValue();
-        if (jefeSeleccionado != null) {
+        if (jefeSeleccionado != null) { System.out.println("Jefe seleccionado: " + jefeSeleccionado.getJefeID());
             
         }
     }
@@ -174,7 +172,7 @@ public class Esce2Controller {
         }
     }
 
-    // Método para regresar
+
     @FXML
     private void onRegresar(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Esce1.fxml"));
