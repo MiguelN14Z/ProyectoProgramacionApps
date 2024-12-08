@@ -1,9 +1,15 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 
 public class Esce2Controller {
@@ -40,7 +46,7 @@ public class Esce2Controller {
         genero.getItems().addAll("Masculino", "Femenino", "Otro");
 
         // Cargar los valores de jefe desde la base de datos
-        Empleado empleado = new Empleado(0, null, null, null, null, 0, 0, null, 0, 0);
+        Empleado empleado = new Empleado(null, null, null, null, null, 0, 0, null, null, 0);
         ObservableList<Empleado> jefes = empleado.getEmpleados();
         jefe.setItems(jefes);
 
@@ -95,7 +101,7 @@ public class Esce2Controller {
 
         if (errores.isEmpty()) {
             // Guardar empleado en la base de datos
-            Empleado empleado = new Empleado(0, nombreValue, generoValue, nacimientoValue, incorporacionValue,
+            Empleado empleado = new Empleado(dniValue, nombreValue, generoValue, nacimientoValue, incorporacionValue,
                     Double.parseDouble(salarioValue), Double.parseDouble(comisionValue),
                     cargoValue, jefeSeleccionado.getId(), departamentoSeleccionado.getCodDepto());
 
@@ -122,8 +128,19 @@ public class Esce2Controller {
 
     // Método para regresar
     @FXML
-    public void onRegresar(ActionEvent event) {
-        Stage stage = (Stage) botonRegresar.getScene().getWindow();
-        stage.close();
+    private void onRegresar(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Esce1.fxml"));
+        try {
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            Stage currentStage = (Stage) botonRegresar.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
