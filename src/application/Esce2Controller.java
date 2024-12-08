@@ -106,7 +106,7 @@ public class Esce2Controller {
     @FXML
     public void jefe(ActionEvent event) {
         Empleado jefeSeleccionado = jefe.getValue();
-        if (jefeSeleccionado != null) { System.out.println("Jefe seleccionado: " + jefeSeleccionado.getJefeID());
+        if (jefeSeleccionado != null) { System.out.println("Jefe seleccionado ");
             
         }
     }
