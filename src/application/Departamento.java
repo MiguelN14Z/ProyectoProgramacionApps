@@ -16,7 +16,7 @@ public class Departamento {
     }
 
     // Constructor con parámetros
-    public Departamento(int codDepto, String nombreDepto) {
+    public Departamento(int codDepto, String nombreDpto) {
         this.codDepto = codDepto;
         this.nombreDpto = nombreDpto;
     }
@@ -30,11 +30,11 @@ public class Departamento {
         this.codDepto = codDepto;
     }
 
-    public String getNombreDepto() {
+    public String getNombreDpto() {
         return nombreDpto;
     }
 
-    public void setNombreDepto(String nombreDpto) {
+    public void setNombreDpto(String nombreDpto) {
         this.nombreDpto = nombreDpto;
     }
 

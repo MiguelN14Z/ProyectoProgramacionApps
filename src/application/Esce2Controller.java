@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
-
 import javafx.collections.ObservableList;
 
 public class Esce2Controller {
@@ -50,10 +49,59 @@ public class Esce2Controller {
         ObservableList<Empleado> jefes = empleado.getEmpleados();
         jefe.setItems(jefes);
 
+     // Personalizar el ComboBox de jefe para mostrar solo el código (ID)
+        jefe.setCellFactory(lv -> new ListCell<Empleado>() {
+            @Override
+            protected void updateItem(Empleado item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getId().toString()); // Solo muestra el ID del jefe
+                }
+            }
+        });
+        jefe.setButtonCell(new ListCell<Empleado>() {
+            @Override
+            protected void updateItem(Empleado item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getId().toString()); // Solo muestra el ID del jefe
+                }
+            }
+        });
+
+
         // Cargar los valores de departamento desde la base de datos
         Departamento depto = new Departamento();
         ObservableList<Departamento> departamentos = depto.getDepartamentos();
         departamento.setItems(departamentos);
+
+        // Personalizar el ComboBox de departamento
+        departamento.setCellFactory(lv -> new ListCell<Departamento>() {
+            @Override
+            protected void updateItem(Departamento item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getCodDepto() + " - " + item.getNombreDpto()); // Muestra código y nombre
+                }
+            }
+        });
+        departamento.setButtonCell(new ListCell<Departamento>() {
+            @Override
+            protected void updateItem(Departamento item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getCodDepto() + " - " + item.getNombreDpto());
+                }
+            }
+        });
     }
 
     // Método para manejar la selección de un jefe
@@ -61,7 +109,7 @@ public class Esce2Controller {
     public void jefe(ActionEvent event) {
         Empleado jefeSeleccionado = jefe.getValue();
         if (jefeSeleccionado != null) {
-            System.out.println("Jefe seleccionado: " + jefeSeleccionado.getNombre());
+            
         }
     }
 
@@ -70,7 +118,7 @@ public class Esce2Controller {
     public void depto(ActionEvent event) {
         Departamento departamentoSeleccionado = departamento.getValue();
         if (departamentoSeleccionado != null) {
-            System.out.println("Departamento seleccionado: " + departamentoSeleccionado.getNombreDepto());
+            System.out.println("Departamento seleccionado: " + departamentoSeleccionado.getNombreDpto());
         }
     }
 
