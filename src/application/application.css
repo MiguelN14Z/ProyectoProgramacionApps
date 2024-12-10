@@ -1,1 +1,21 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/*Color gradient*/
+.colorBackground{
+    -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);
+}
+.table-view {
+    -fx-background-color: rgb(204, 255, 255); /* Fondo de la tabla */
+}
+
+.table-row-cell {
+    -fx-background-color: transparent; /* Transparencia para filas */
+
+}
+.password-field {
+    -fx-background-color: transparent; /* Fondo transparente */
+    -fx-border-color: black; /* Borde negro */
+    -fx-border-width: 1px; /* Grosor del borde */
+    -fx-border-radius: 3px; /* Esquinas redondeadas */
+    -fx-padding: 5px; /* Espaciado interno */
+}
+
+

@@ -46,6 +46,8 @@ public class Esce3Controller {
 
     @FXML
     private Button regresar; // Botón para regresar a la escena anterior
+    @FXML
+    private Button eliminar; // Botón para eliminar empleado seleccionado
 
     private ObservableList<Empleado> empleados;
 
@@ -97,6 +99,25 @@ public class Esce3Controller {
     }
 
     @FXML
+    private void handleEliminar(ActionEvent event) {
+        // Obtener el empleado seleccionado
+        Empleado seleccionado = tablaEmpleados.getSelectionModel().getSelectedItem();
+
+        if (seleccionado != null) {
+            // Eliminar de la lista de empleados
+            empleados.remove(seleccionado);
+
+            // Actualizar la tabla
+            tablaEmpleados.refresh();
+
+            // Actualizar ChoiceBox
+            busqueda.getItems().remove(seleccionado.getNombre());
+        } else {
+            System.out.println("No se ha seleccionado ningún empleado para eliminar.");
+        }
+    }
+
+    @FXML
     private void handleRegresar(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Esce1.fxml"));
         try {
@@ -113,3 +134,4 @@ public class Esce3Controller {
         }
     }
 }
+

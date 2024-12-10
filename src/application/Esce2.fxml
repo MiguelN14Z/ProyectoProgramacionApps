@@ -5,39 +5,88 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<!-- Cambiado ChoiceBox por ComboBox -->
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Esce2Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Esce2Controller">
    <children>
-      <Label alignment="CENTER" layoutX="230.0" layoutY="61.0" text="Informacion del Nuevo Empleado" AnchorPane.topAnchor="61.0">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="149.0" text="DNI Empleado" />
-      <Label layoutX="66.0" layoutY="181.0" text="Nombre" />
-      <Label layoutX="66.0" layoutY="215.0" text="Genero" />
-      <Label layoutX="66.0" layoutY="251.0" text="Fecha de Nacimiento" />
-      <Label layoutX="66.0" layoutY="285.0" text="Fecha de Incorporación" />
-      <Label layoutX="356.0" layoutY="149.0" text="Salario" />
-      <Label layoutX="358.0" layoutY="181.0" text="Comisón" />
-      <Label layoutX="358.0" layoutY="216.0" prefHeight="18.0" prefWidth="32.0" text="Cargo" />
-      <Label layoutX="357.0" layoutY="251.0" text="ID de Jefe Inmediato" />
-      <Label layoutX="359.0" layoutY="286.0" text="Código Departamento" />
-      <TextField fx:id="dni" layoutX="208.0" layoutY="145.0" prefHeight="26.0" prefWidth="124.0" />
-      <TextField fx:id="nombre" layoutX="208.0" layoutY="177.0" prefHeight="26.0" prefWidth="124.0" />
-      <TextField fx:id="cargo" layoutX="493.0" layoutY="210.0" prefHeight="26.0" prefWidth="124.0" />
-      <TextField fx:id="salario" layoutX="493.0" layoutY="145.0" prefHeight="26.0" prefWidth="124.0" />
-      <ComboBox fx:id="jefe" layoutX="493.0" layoutY="247.0" prefHeight="26.0" prefWidth="124.0" /> 
-      <ComboBox fx:id="departamento" layoutX="493.0" layoutY="281.0" prefHeight="26.0" prefWidth="124.0" /> 
-      <DatePicker fx:id="nacimiento" layoutX="209.0" layoutY="247.0" prefHeight="26.0" prefWidth="124.0" />
-      <DatePicker fx:id="incorporacion" layoutX="208.0" layoutY="282.0" prefHeight="26.0" prefWidth="124.0" />
-      <ComboBox fx:id="genero" layoutX="208.0" layoutY="212.0" prefHeight="26.0" prefWidth="124.0" /> 
-      <TextField fx:id="comision" layoutX="493.0" layoutY="177.0" prefHeight="26.0" prefWidth="124.0" />
-      <Button fx:id="botonGuardar" layoutX="208.0" layoutY="326.0" mnemonicParsing="false" onAction="#onGuardarEmpleado" prefHeight="35.0" prefWidth="119.0" text="Guardar" />
-      <Button fx:id="botonRegresar" layoutX="407.0" layoutY="326.0" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="119.0" text="Regresar" />
+      <AnchorPane layoutX="55.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="682.0">
+         <children>
+            <ImageView fitHeight="544.0" fitWidth="850.0" layoutX="-84.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/beautiful-purple-color-gradient-background-free-vector.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="212.0" layoutY="64.0" text="Informacion del Nuevo Empleado" textFill="WHITE" AnchorPane.topAnchor="64.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="149.0" text="DNI Empleado" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="181.0" text="Nombre" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="215.0" text="Genero" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="251.0" text="Fecha de Nacimiento" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="285.0" text="Fecha de Incorporación" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="372.0" layoutY="149.0" text="Salario" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="372.0" layoutY="181.0" text="Comisón" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="374.0" layoutY="216.0" prefHeight="20.0" prefWidth="46.0" text="Cargo" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="372.0" layoutY="251.0" text="ID de Jefe Inmediato" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="374.0" layoutY="286.0" text="Código Departamento" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="dni" layoutX="230.0" layoutY="144.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <TextField fx:id="nombre" layoutX="230.0" layoutY="176.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <TextField fx:id="cargo" layoutX="526.0" layoutY="212.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <TextField fx:id="salario" layoutX="526.0" layoutY="144.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <ComboBox fx:id="jefe" layoutX="526.0" layoutY="247.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <ComboBox fx:id="departamento" layoutX="526.0" layoutY="281.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <DatePicker fx:id="nacimiento" layoutX="230.0" layoutY="246.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <DatePicker fx:id="incorporacion" layoutX="230.0" layoutY="281.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <ComboBox fx:id="genero" layoutX="230.0" layoutY="211.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <TextField fx:id="comision" layoutX="526.0" layoutY="176.0" prefHeight="26.0" prefWidth="124.0" style="-fx-border-color: black;" />
+            <Button fx:id="botonGuardar" layoutX="204.0" layoutY="343.0" mnemonicParsing="false" onAction="#onGuardarEmpleado" prefHeight="35.0" prefWidth="119.0" styleClass="colorBackground" stylesheets="@application.css" text="Guardar" />
+            <Button fx:id="botonRegresar" layoutX="401.0" layoutY="343.0" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="119.0" styleClass="colorBackground" stylesheets="@application.css" text="Regresar" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
