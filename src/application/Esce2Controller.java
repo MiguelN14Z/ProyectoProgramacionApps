@@ -47,30 +47,21 @@ public class Esce2Controller {
         ObservableList<Empleado> jefes = empleado.getEmpleados();
         jefe.setItems(jefes);
 
-     // Personalizar el ComboBox de jefe para mostrar solo el código (ID)
+        // Personalizar el ComboBox de jefe para mostrar solo el código (ID)
         jefe.setCellFactory(lv -> new ListCell<Empleado>() {
             @Override
             protected void updateItem(Empleado item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setText(null);
-                } else {
-                    setText(item.getId().toString()); // Solo muestra el ID del jefe
-                }
+                setText(empty || item == null ? null : item.getId());
             }
         });
         jefe.setButtonCell(new ListCell<Empleado>() {
             @Override
             protected void updateItem(Empleado item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setText(null);
-                } else {
-                    setText(item.getId().toString()); // Solo muestra el ID del jefe
-                }
+                setText(empty || item == null ? null : item.getId());
             }
         });
-
 
         // Cargar los valores de departamento desde la base de datos
         Departamento depto = new Departamento();
@@ -82,45 +73,18 @@ public class Esce2Controller {
             @Override
             protected void updateItem(Departamento item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setText(null);
-                } else {
-                    setText(item.getCodDepto() + " - " + item.getNombreDpto()); // Muestra código y nombre
-                }
+                setText(empty || item == null ? null : item.getCodDepto() + " - " + item.getNombreDpto());
             }
         });
         departamento.setButtonCell(new ListCell<Departamento>() {
             @Override
             protected void updateItem(Departamento item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setText(null);
-                } else {
-                    setText(item.getCodDepto() + " - " + item.getNombreDpto());
-                }
+                setText(empty || item == null ? null : item.getCodDepto() + " - " + item.getNombreDpto());
             }
         });
     }
 
-    // Método para manejar la selección de un jefe
-    @FXML
-    public void jefe(ActionEvent event) {
-        Empleado jefeSeleccionado = jefe.getValue();
-        if (jefeSeleccionado != null) { System.out.println("Jefe seleccionado ");
-            
-        }
-    }
-
-    // Método para manejar la selección de un departamento
-    @FXML
-    public void depto(ActionEvent event) {
-        Departamento departamentoSeleccionado = departamento.getValue();
-        if (departamentoSeleccionado != null) {
-            System.out.println("Departamento seleccionado: " + departamentoSeleccionado.getNombreDpto());
-        }
-    }
-
-    // Método para guardar el empleado
     @FXML
     public void onGuardarEmpleado(ActionEvent event) {
         String dniValue = dni.getText();
@@ -134,6 +98,22 @@ public class Esce2Controller {
         String nacimientoValue = nacimiento.getValue() != null ? nacimiento.getValue().toString() : null;
         String incorporacionValue = incorporacion.getValue() != null ? incorporacion.getValue().toString() : null;
 
+        // Convertir género a abreviaturas
+        String generoAbreviado = null;
+        if (generoValue != null) {
+            switch (generoValue) {
+                case "Masculino":
+                    generoAbreviado = "M";
+                    break;
+                case "Femenino":
+                    generoAbreviado = "F";
+                    break;
+                case "Otro":
+                    generoAbreviado = "O";
+                    break;
+            }
+        }
+
         // Validar campos
         String errores = "";
         if (dniValue.isEmpty()) errores += "- DNI es obligatorio\n";
@@ -141,17 +121,17 @@ public class Esce2Controller {
         if (cargoValue.isEmpty()) errores += "- Cargo es obligatorio\n";
         if (salarioValue.isEmpty()) errores += "- Salario es obligatorio\n";
         if (comisionValue.isEmpty()) errores += "- Comisión es obligatoria\n";
-        if (generoValue == null) errores += "- Selecciona un género\n";
+        if (generoAbreviado == null) errores += "- Selecciona un género válido\n";
         if (jefeSeleccionado == null) errores += "- Selecciona un jefe\n";
         if (departamentoSeleccionado == null) errores += "- Selecciona un departamento\n";
 
         if (errores.isEmpty()) {
             // Guardar empleado en la base de datos
-            Empleado empleado = new Empleado(dniValue, nombreValue, generoValue, nacimientoValue, incorporacionValue,
+            Empleado empleado = new Empleado(dniValue, nombreValue, generoAbreviado, nacimientoValue, incorporacionValue,
                     Double.parseDouble(salarioValue), Double.parseDouble(comisionValue),
                     cargoValue, jefeSeleccionado.getId(), departamentoSeleccionado.getCodDepto());
 
-            if (empleado.insertarEmpleado(dniValue, nombreValue, generoValue, nacimientoValue, incorporacionValue,
+            if (empleado.insertarEmpleado(dniValue, nombreValue, generoAbreviado, nacimientoValue, incorporacionValue,
                     Double.parseDouble(salarioValue), Double.parseDouble(comisionValue),
                     cargoValue, jefeSeleccionado.getId(), departamentoSeleccionado.getCodDepto())) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -172,7 +152,6 @@ public class Esce2Controller {
         }
     }
 
-
     @FXML
     private void onRegresar(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Esce1.fxml"));
@@ -190,3 +169,4 @@ public class Esce2Controller {
         }
     }
 }
+
